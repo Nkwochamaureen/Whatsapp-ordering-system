@@ -86,7 +86,7 @@ client.on('message', async msg => {
                 };
 
                 // Ask the free AI to act as an agent
-                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+                const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
                 const prompt = `
                 You are a smart assistant for an eatery. Look at this image (receipt or promo flyer).
                 1. Find the date on it.
