@@ -49,16 +49,16 @@ client.on('message', async msg => {
 
     // --- KITCHEN CONFIRMATION LOGIC ---
     // If the message is from the kitchen and they reply "YES"
-    if (sender === KITCHEN_NUMBER && msg.body.toUpperCase().includes("YES")) {
+    if (sender === process.env.KITCHEN_NUMBER && msg.body.toUpperCase().includes("YES")) {
         // Find the oldest pending order
         const userToConfirm = Object.keys(pendingOrders)[0]; 
         if (userToConfirm) {
             // Send confirmation to the customer
             client.sendMessage(userToConfirm, "✅ *Great news!* The kitchen has confirmed your receipt. Your order is being processed now!");
             delete pendingOrders[userToConfirm]; // Remove from pending
-            client.sendMessage(KITCHEN_NUMBER, "Customer notified!");
+            client.sendMessage(process.env.KITCHEN_NUMBER, "Customer notified!");
         } else {
-            client.sendMessage(KITCHEN_NUMBER, "No pending orders to confirm.");
+            client.sendMessage(process.env.KITCHEN_NUMBER, "No pending orders to confirm.");
         }
         // IGNORE STATUS UPDATES (Prevents the bot from replying to or posting statuses)
     if (msg.isStatus || sender === 'status@broadcast') {
