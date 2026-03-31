@@ -1,0 +1,14 @@
+node_modules/
+.env
+
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Node Modules 
+node_modules/
+
+# Environment Variables 
+
+# System Files
+.DS_Store
+Thumbs.db
